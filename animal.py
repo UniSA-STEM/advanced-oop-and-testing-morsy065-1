@@ -6,144 +6,161 @@ ID: 1104436331
 Username: morsy065
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
+
 # Animal class which is the parent class.
 class Animal:
-    def __init__(self, name, species, age, diet, sex):
-        self._name = name
-        self._species = species
-        self._age = age
-        self._diet = diet
-        self._sex = sex
+    def __init__(self, name, species, age, diet, type):
+        self.__name = name
+        self.__species = species
+        self.__age = age
+        self.__diet = diet
+        self.__type = type
     # getters for the Animal class attributes
     def get_name(self):
-        return self._name
-    
+        return self.__name
+
     def get_age(self):
-        return self._age
-    
+        return self.__age
+
     def get_species(self):
-        return self._species
-    
+        return self.__species
+
     def get_diet(self):
-        return self._diet
+        return self.__diet
+
+    def get_type(self):
+        return self.__type
     
-    def get_sex(self):
-        return self._sex
+    def make_sound(self):
+        pass
+
+    def desc(self):
+        pass
 # The Mammal class which inherits the Animal class' attributes
 class Mammal(Animal):
-    def __init__(self, name, species, age, diet, sex):
-        super().__init__(name, species, age, diet, sex)
+    def __init__(self, name, species, age, diet, type):
+        super().__init__(name, species, age, diet, type)
+        
 # The species classes that belong the Mammal group
 class Lion(Mammal):
     def __init__(self, name, age):
-        super().__init__(name, "Lion", age, "Carnivore", "Male")
+        super().__init__(name, "Lion", age, "Carnivore", "Savannah")
     # basic action methods
     def roar(self):
-        return f"{self._name} the {self._species} makes a loud ROARR!"
+        return f"{self._Animal__name} the {self._Animal__species} makes a loud ROARR!"
     
-    def pouncing(self):
-        return f"{self._name} the {self._species} pounces around."
+    def pouncing(self, enclosure):
+        enclosure._Enclosure__cleanliness_level -= 5
+        return f"{self._Animal__name} the {self._Animal__species} pounces around."
     
     def hunt(self):
-        return f"{self._name} the {self._species} stalks the visitors."
+        return f"{self._Animal__name} the {self._Animal__species} stalks the visitors."
     # This method list down the description for each specie.
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
     
 class Giraffe(Mammal):
     def __init__(self, name, age):
-        super().__init__(name, "Giraffe", age, "Herbivore", "Female")
+        super().__init__(name, "Giraffe", age, "Herbivore", "Savannah")
     # basic action methods
-    def eats(self):
-        return f"{self._name} the {self._species} reaches for the tree."
+    def eats(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 3
+        return f"{self._Animal__name} the {self._Animal__species} reaches for the tree."
     
     def sleeps(self):
-        return f"{self._name} the {self._species} sits down to sleep."
+        return f"{self._Animal__name} the {self._Animal__species} sits down to sleep."
     
-    def feeds(self):
-        return f"{self._name} the {self._species} feeds her kid."
+    def feeds(self, enclosure):
+        enclosure._Enclosure__cleanliness_level -= 1
+        return f"{self._Animal__name} the {self._Animal__species} feeds her kid."
     
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
     
 class Elephant(Mammal):
     def __init__(self, name, age):
-        super().__init__(name, "Elephant", age, "Herbivore", "Male")
+        super().__init__(name, "Elephant", age, "Herbivore", "Savannah")
     # basic action methods
     def trumpet(self):
-        return f"{self._name} the {self._species} blows his trunk"
+        return f"{self._Animal__name} the {self._Animal__species} blows his trunk"
     
-    def spray(self):
-        return f"{self._name} the {self._species} sprays water around."
+    def spray(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 11
+        return f"{self._Animal__name} the {self._Animal__species} sprays water around."
     
-    def reach(self):
-        return f"{self._name} the {self._species} reaches for thr visitors with its trunk."
+    def reach(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 2
+        return f"{self._Animal__name} the {self._Animal__species} reaches for thr visitors with its trunk."
     
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
 # The Bird Class which inherits the Animal class' attributes
 class Bird(Animal):
-    def __init__(self, name, species, age, diet, sex):
-        super().__init__(name, species, age, diet, sex)
+    def __init__(self, name, species, age, diet, type):
+        super().__init__(name, species, age, diet, type)
 # The bird species and their functions
 class Parrot(Bird):
     def __init__(self, name, age):
-        super().__init__(name, 'Parrot', age, 'Omnivore', 'Male')
+        super().__init__(name, 'Parrot', age, 'Omnivore', 'Forest')
     # basic action methods
     def talk(self, word):
-        return f"{self._name} the {self._species} starts yelling {word}."
+        return f"{self._Animal__name} the {self._Animal__species} starts yelling {word}."
     
-    def nest(self):
-        return f"{self._name} the {self._species} flies back to its nest."
+    def nest(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 1
+        return f"{self._Animal__name} the {self._Animal__species} flies back to its nest."
     
     def scream(self):
-        return f"{self._name} the {self._species} screams for no reason!"
+        return f"{self._Animal__name} the {self._Animal__species} screams for no reason!"
     
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
     
 class Penguin(Bird):
     def __init__(self, name, age):
-        super().__init__(name, 'Penguin', age, 'Carnivore', 'Female')
+        super().__init__(name, 'Penguin', age, 'Carnivore', 'Aquatic')
     # basic action methods
-    def waddle(self):
-        return f"{self._name} the {self._species} waddles across its habitat."
+    def waddle(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 2
+        return f"{self._Animal__name} the {self._Animal__species} waddles across its habitat."
     
-    def swim(self):
-        return f"{self._name} the {self._species} dives in the water for a swim."
+    def swim(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 3
+        return f"{self._Animal__name} the {self._Animal__species} dives in the water for a swim."
     
-    def follow(self):
-        return f"{self._name} the {self._species} follows the zookeeper."
+    def follow(self, enclosure):
+        enclosure._Enclosure__cleanliness_level - 1
+        return f"{self._Animal__name} the {self._Animal__species} follows the zookeeper."
 
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
 # The Reptile class 
 class Reptile(Animal):
-    def __init__(self, name, species, age, diet, sex):
-        super().__init__(name, species, age, diet, sex)
+    def __init__(self, name, species, age, diet, type):
+        super().__init__(name, species, age, diet, type)
 
 class Snake(Reptile):
     def __init__(self, name, age):
-        super().__init__(name, 'Snake', age, 'Carnivore', 'Male')
+        super().__init__(name, 'Snake', age, 'Carnivore', 'Forest')
     # basic action methods
     def hss(self):
-        return f"{self._name} the {self._species} starts to hssssss."
+        return f"{self._Animal__name} the {self._Animal__species} starts to hssssss."
     
     def sleep(self):
-        return f"{self._name} the {self._species} coils its body to sleep."
+        return f"{self._Animal__name} the {self._Animal__species} coils its body to sleep."
     
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
     
 class Crocodile(Reptile):
     def __init__(self, name, age):
-        super().__init__(name, 'Crocodile', age, 'Carnivore', 'Male')
+        super().__init__(name, 'Crocodile', age, 'Carnivore', 'Aquatic')
     # basic action methods
     def lurking(self):
-        return f"{self._name} the {self._species} lurks around its swamp."
+        return f"{self._Animal__name} the {self._Animal__species} lurks around its swamp."
     
     def sun_bath(self):
-        return f"{self._name} the {self._species} baths in the sun."
+        return f"{self._Animal__name} the {self._Animal__species} baths in the sun."
     
     def desc(self):
-        return f" Name: {self._name} \n Species: {self._species} \n Age: {self._age} \n Dietary Needs: {self._diet} \n Sex: {self._sex} \n -----------"
+        return f" ----------- \n Name: {self._Animal__name} \n Species: {self._Animal__species} \n Age: {self._Animal__age} \n Dietary Needs: {self._Animal__diet} \n type: {self._Animal__type} \n -----------"
