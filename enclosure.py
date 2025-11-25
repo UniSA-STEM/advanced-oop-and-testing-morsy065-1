@@ -13,12 +13,12 @@ class Enclosure:
         self.__size = size
         self.__cleanliness_level = 100
         self.__animals = []
-    # list method 
+    # list method which when called shows a list of animals
     def list_animals(self):
         if not self._Enclosure__animals:
             return f"No animals in the {self.__habitat_type} enclosure."
         return [f"{animal.get_name()} ({animal.get_species()})" for animal in self.__animals]
-    
+# Savannah enclosure which includes an add animal method and a status check method
 class Savannah(Enclosure):
     def __init__(self, size):
         super().__init__("Savannah", size)
@@ -32,7 +32,7 @@ class Savannah(Enclosure):
     def status(self):
         return (
             f" Savannah Enclosure (Size): {self._Enclosure__size} m² \n Cleanliness: {self._Enclosure__cleanliness_level}/100 \n Animals: {len(self._Enclosure__animals)} \n ---------")
-
+# Aquatic enclosure which includes an add animal method and a status check method
 class Aquatic(Enclosure):
     def __init__(self, size):
         super().__init__("Aquatic", size)
@@ -46,7 +46,7 @@ class Aquatic(Enclosure):
     def status(self):
         return (
             f" Aquatic Enclosure - Size: {self._Enclosure__size} m² \n Cleanliness: {self._Enclosure__cleanliness_level}/100 \n Animals: {len(self._Enclosure__animals)} \n ---------")
-
+# Forest enclosure which includes an add animal method and a status check method
 class Forest(Enclosure):
     def __init__(self, size):
         super().__init__("Forest", size)
